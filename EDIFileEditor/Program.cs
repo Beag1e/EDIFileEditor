@@ -10,7 +10,7 @@ internal static class Program
     {
         if (args.Length == 0)
         {
-
+            Session sess = new();
         }
         else
         {
