@@ -32,7 +32,8 @@ public partial class Session
 
         foreach (string file in files)
         {
-            FileWorkflow(file);
+            if (!file.Contains(".gitkeep"))
+                FileWorkflow(file);
         }
     }
 
@@ -99,12 +100,12 @@ public partial class Session
         }
     }
 
-    [GeneratedRegex("^(ISA\\*.*\\*.*\\*.*\\*.*\\*.*\\*.*\\*.*\\*).*(\\*.*\\*.*\\*.*\\*.*\\*.*\\*.*\\*.*\\*.*>~$)")]
+    [GeneratedRegex("^(ISA\\*(?:[\\w\\s]*\\*){7})[\\w\\s]*((?:\\*[\\w\\s]*){8}>~)$")]
     private static partial Regex ISA08Regex();
 
-    [GeneratedRegex("^(GS\\*.*\\*.*\\*).*(\\*.*\\*.*\\*.*\\*.*\\*.*~$)")]
+    [GeneratedRegex("^(GS\\*(?:[\\w\\s]*\\*){2})[\\w\\s]*((?:\\*[\\w\\s]*){5}~)$")]
     private static partial Regex GS03Regex();
 
-    [GeneratedRegex("^(N1\\*ST\\*.*\\*.*\\*)(.{3})(.*)(~$)")]
+    [GeneratedRegex("^(N1\\*ST\\*(?:[^\\*\\t\\n\\r~]*\\*){2})([\\w]{3})(\\w*)(~)$")]
     private static partial Regex N104Regex();
 }
