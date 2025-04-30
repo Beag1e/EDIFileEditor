@@ -15,14 +15,16 @@ using System.Text.RegularExpressions;
 namespace EDIFileEditor;
 public partial class Session
 {
-    private string _ReplacementText = "9566876206";
-    private string _InputFileDirectory = @"..\..\..\Input";
-    private string _OutputFileDirectory = @"..\..\..\Output";
-    private string _WithheldFileDirectory = @"..\..\..\Withheld";
-    private string _ArchiveFileDirectory = @"..\..\..\Archive";
+    private readonly string _ReplacementText = "9566876206";
+    private readonly string _InputFileDirectory = @"..\..\..\Input";
+    private readonly string _OutputFileDirectory = @"..\..\..\Output";
+    private readonly string _WithheldFileDirectory = @"..\..\..\Withheld";
+    private readonly string _ArchiveFileDirectory = @"..\..\..\Archive";
 
-    public Session()
+    public Session(string replacementText = "")
     {
+        _ReplacementText = replacementText;
+
         Workflow();
     }
 
